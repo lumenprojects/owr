@@ -1,2 +1,0 @@
-# owr
-Overwatch character randomizer
