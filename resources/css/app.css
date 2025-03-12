@@ -6,7 +6,100 @@
 @source "../**/*.js";
 @source "../**/*.vue";
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* Определение переменных для светлой и темной темы */
+:root {
+    --color-light-background: #FFFFFF;
+    --color-light-text: #010818;
+
+    --color-dark-background: #010818;
+    --color-dark-text: #FFFFFF;
+
+    --color-primary: #010818;  /* Черный */
+    --color-secondary: #FFFFFF; /* Белый */
+
+    --color-light-border: #010818;  /* Цвет полоски для светлой темы */
+    --color-dark-border: #FFFFFF;   /* Цвет полоски для темной темы */
 }
+
+/* Стили для светлой темы */
+[data-theme='light'] {
+    --background-color: var(--color-light-background);
+    --text-color: var(--color-light-text);
+    --button-bg: var(--color-primary);  /* Заливка кнопки */
+    --button-text: var(--color-secondary); /* Цвет текста на кнопке */
+    --border-color: var(--color-light-border); /* Цвет полоски */
+}
+
+/* Стили для темной темы */
+[data-theme='dark'] {
+    --background-color: var(--color-dark-background);
+    --text-color: var(--color-dark-text);
+    --button-bg: var(--color-secondary);  /* Заливка кнопки */
+    --button-text: var(--color-primary); /* Цвет текста на кнопке */
+    --border-color: var(--color-dark-border); /* Цвет полоски */
+}
+
+* {
+    user-select: none;
+    cursor: default; /* Убираем текстовый курсор */
+}
+
+body {
+    font-family: 'Alexandria', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    border-bottom: 1px solid var(--border-color);  /* Полоска навбара */
+}
+
+footer {
+    border-top: 1px solid var(--border-color);  /* Полоска футера */
+}
+
+/* Основные стили для кнопок */
+/* Основные стили для кнопок */
+button {
+    color: var(--button-text);
+    border: none;
+    border-radius: 18px; /* Сглаженные углы */
+    background: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Кнопки выбора роли */
+.buttonRole {
+    position: relative;
+    color: var(--text-color);
+    padding-bottom: 3px;
+}
+
+.buttonRole::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.buttonRole:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Кнопка с заливкой */
+.buttonColor {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+/* Кнопка с обводкой */
+.buttonStroke {
+    color: var(--button-text);
+    border: 2px solid var(--border-color);
+}
+
