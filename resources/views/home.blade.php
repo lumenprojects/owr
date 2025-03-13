@@ -55,9 +55,8 @@
         <div class="w-full max-w-xl mx-auto space-y-16">
             <!-- Блок 1: Выбор роли персонажа -->
             <div class="flex justify-around">
-                <!-- Кнопки выбора роли -->
                 @foreach (['Tank', 'Damage', 'Support'] as $role)
-                    <button class="buttonRole flex items-center space-x-2 pb-4 focus:outline-none">
+                    <button class="buttonRole flex items-center space-x-2 pb-4 focus:outline-none" data-role="{{ $role }}">
                         <img src="{{ asset('icons/' . $role . '.svg') }}" alt="{{ $role }}" class="w-6 h-6">
                         <span>{{ $role }}</span>
                     </button>
@@ -66,13 +65,13 @@
 
             <!-- Блок 2: Большой квадратик для смены картинок -->
             <div class="w-full max-w-xl aspect-square bg-gray-200 rounded-[6rem] mx-auto">
-                <!-- Здесь будут меняться картинки -->
+                <img id="character-image" src="{{ asset('images/placeholder.png') }}" class="w-full h-full object-cover rounded-[6rem]">
             </div>
 
             <!-- Блок 3: Две кнопки -->
             <div class="flex justify-center space-x-4">
                 <!-- Кнопка Shuffle -->
-                <button class="buttonColor flex items-center px-6 py-3 bg-primary text-secondary font-bold rounded-lg shadow-lg transition hover:bg-zinc-800">
+                <button id="shuffle-button" class="buttonColor flex items-center px-6 py-3 bg-primary text-secondary font-bold rounded-lg transition hover:bg-zinc-800">
                     <img src="{{ asset('icons/Shuffle.svg') }}" alt="Shuffle Icon" class="w-5 h-5 mx-1">
                     <span>Shuffle</span>
                 </button>
@@ -83,6 +82,7 @@
             </div>
         </div>
     </main>
+
 
     <!-- Футер -->
     <footer class="py-4 text-xl">
@@ -95,6 +95,7 @@
 </div>
 
 <script>
+    // Theme
     const themeToggleButton = document.getElementById('theme-toggle');
 
     themeToggleButton.addEventListener('click', () => {
@@ -104,6 +105,42 @@
         } else {
             document.body.setAttribute('data-theme', 'light');
         }
+    });
+
+    // Char Picker
+    document.addEventListener("DOMContentLoaded", function () {
+        const shuffleButton = document.querySelector("#shuffle-button");
+        const roleButtons = document.querySelectorAll(".buttonRole");
+        const imageContainer = document.querySelector("#character-image");
+        const characterName = document.querySelector("#character-name");
+
+        let selectedRole = "Tank"; // Роль по умолчанию
+
+        // Обработчик выбора роли
+        roleButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                selectedRole = this.getAttribute("data-role");
+                // Подсветим выбранную роль (например, добавим класс active)
+                roleButtons.forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+            });
+        });
+
+        // Обработчик кнопки Shuffle
+        shuffleButton.addEventListener("click", function () {
+            fetch(`/character/random?role=${selectedRole}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+                    // Обновляем изображение персонажа
+                    imageContainer.src = data.image;
+                    characterName.textContent = data.name;
+                })
+                .catch(error => console.error("Ошибка:", error));
+        });
     });
 </script>
 
