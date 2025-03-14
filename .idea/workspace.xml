@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fbdaa91-1d00-42e8-9e7e-ee225980e1fe" name="Changes" comment="Bringing it up to working order. From the functionality right now only the change of the theme change sketch. Plus some character pictures">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CharacterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Character.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2025_03_12_185228_create_characters_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/overwatch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/chars/doom.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/chars/dva.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/chars/junk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/chars/rein.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/chars/winton.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CharacterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CharacterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/chars/d.va.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/chars/dva.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -184,7 +178,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/randomizer&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -197,6 +191,9 @@
     <configuration name="Main" type="PestRunConfigurationType">
       <option name="pestRunnerSettings">
         <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
+      </option>
+      <option name="runnerSettings">
+        <PhpTestRunnerSettings configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       </option>
       <method v="2" />
     </configuration>
@@ -221,7 +218,10 @@
       <workItem from="1741791568896" duration="3646000" />
       <workItem from="1741801406981" duration="6845000" />
       <workItem from="1741860234711" duration="626000" />
-      <workItem from="1741874732412" duration="3588000" />
+      <workItem from="1741874732412" duration="7880000" />
+      <workItem from="1741892241462" duration="629000" />
+      <workItem from="1741956852079" duration="4714000" />
+      <workItem from="1741977707918" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="Bringing it up to working order. From the functionality right now only the change of the theme change sketch. Plus some character pictures">
       <option name="closed" value="true" />
@@ -236,6 +236,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Bringing it up to working order. From the functionality right now only the change of the theme change sketch. Plus some character pictures" />

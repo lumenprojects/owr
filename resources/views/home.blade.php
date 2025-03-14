@@ -128,7 +128,11 @@
 
         // Обработчик кнопки Shuffle
         shuffleButton.addEventListener("click", function () {
-            fetch(`/character/random?role=${selectedRole}`)
+            // Включение режима разработчика с передачей seed (для тестов)
+            const isDeveloperMode = false; // Включи true для тестирования режима
+            const seedParam = isDeveloperMode ? `&seed=${Date.now()}` : '';
+
+            fetch(`/character/random?role=${selectedRole}${seedParam}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
