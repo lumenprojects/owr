@@ -86,10 +86,12 @@ button {
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-.buttonRole:hover::after {
+.buttonRole:hover::after,
+.buttonRole.active::after {
     width: 100%;
     left: 0;
 }
+
 
 /* Кнопка с заливкой */
 .buttonColor {
